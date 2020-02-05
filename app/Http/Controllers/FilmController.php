@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Film;
+use App\People;
+use App\Species;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -31,13 +33,19 @@ class FilmController extends Controller
 
     public function characterByMostAppearance()
     {
-        $films = Film::query()
+        /**
+         * SELECT people.name, COUNT(films_characters.people_id) AS apearance
+         * FROM people
+         * JOIN films_characters ON people.id = films_characters.people_id
+         * GROUP BY people.id
+         * ORDER BY apearance desc
+         */
+        $films = People::query()
             ->select([
-                DB::raw("CHAR_LENGTH(films.opening_crawl) AS opening_crawl"),
-                "films.title",
-                "films.director"
+                "people.name",
             ])
-            ->orderByDesc("opening_crawl")
+            ->withCount('films')
+            ->orderByDesc("films_count")
 //            ->limit(1)
             ->get();
 
@@ -53,13 +61,12 @@ class FilmController extends Controller
      */
     public function speciesByMostAppearance()
     {
-        $films = Film::query()
+        $films = Species::query()
             ->select([
-                DB::raw("CHAR_LENGTH(films.opening_crawl) AS opening_crawl"),
-                "films.title",
-                "films.director"
+                "species.name",
             ])
-            ->orderByDesc("opening_crawl")
+            ->withCount('characters')
+            ->orderByDesc("characters_count")
 //            ->limit(1)
             ->get();
 

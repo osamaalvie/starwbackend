@@ -8,5 +8,11 @@ class Film extends Model
 {
     protected $table = "films";
 
+    public function people()
+    {
+        return $this->belongsToMany(People::class, 'films_characters');
+
+    }
+
 
 }
