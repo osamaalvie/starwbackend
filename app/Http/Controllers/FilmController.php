@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Film;
 use App\People;
+use App\Planet;
 use App\Species;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -76,18 +77,19 @@ class FilmController extends Controller
 
     public function largestNoOfVehicle()
     {
-        $films = Film::query()
-            ->select([
-                DB::raw("CHAR_LENGTH(films.opening_crawl) AS opening_crawl"),
-                "films.title",
-                "films.director"
-            ])
-            ->orderByDesc("opening_crawl")
-//            ->limit(1)
-            ->get();
+        $planets = Planet::query()
+            ->with("films")
+            ->select(["planets.id", "planets.name", DB::raw("COUNT(vehicles_pilots.people_id) AS no_of_vehicles")])
+            ->join("films_planets", "planets.id", "=", "films_planets.planet_id")
+            ->join("films", "films_planets.film_id", "=", "films.id")
+            ->join("films_characters", "films.id", "=", "films_characters.film_id")
+            ->join("vehicles_pilots", "films_characters.people_id", "=", "vehicles_pilots.people_id")
+            ->groupBy("planets.id")
+            ->orderByDesc("no_of_vehicles")
+            ->first();
 
 
-        return response()->json($films);
+        return response()->json($planets);
     }
 
     /**
