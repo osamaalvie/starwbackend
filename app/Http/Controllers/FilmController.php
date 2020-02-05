@@ -29,7 +29,22 @@ class FilmController extends Controller
         return response()->json($films);
     }
 
+    public function characterByMostAppearance()
+    {
+        $films = Film::query()
+            ->select([
+                DB::raw("CHAR_LENGTH(films.opening_crawl) AS opening_crawl"),
+                "films.title",
+                "films.director"
+            ])
+            ->orderByDesc("opening_crawl")
+//            ->limit(1)
+            ->get();
 
+
+        return response()->json($films);
+
+    }
 
 
 
