@@ -4,10 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/../starwfrontend/src/App.js" description="&lt;img src=&quot;logo.svg&quot; className=&quot;App-logo&quot; alt=&quot;logo..." line="17" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d33b197-1ece-483d-b33f-455c083b5005" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-    </list>
+    <list default="true" id="7d33b197-1ece-483d-b33f-455c083b5005" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -233,21 +230,6 @@
               <item name="starwbackend" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="starwbackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starwbackend" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="starwbackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starwbackend" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="starwbackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="starwbackend" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -289,7 +271,7 @@
       <option name="presentableId" value="Default" />
       <updated>1580889870721</updated>
       <workItem from="1580889872391" duration="21440000" />
-      <workItem from="1580968933197" duration="2668000" />
+      <workItem from="1580968933197" duration="2931000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1580926948456</created>
@@ -410,15 +392,21 @@
       <option name="project" value="LOCAL" />
       <updated>1580970959852</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="master">
+      <created>1580972162163</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1580972162163</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24108000" />
+    <option name="totallyTimeSpent" value="24371000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" visible="true" weight="0.32843137" />
