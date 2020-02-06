@@ -46,9 +46,9 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'recruitment-test-mysql.caqylurhpyhw.eu-west-1.rds.amazonaws.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'recruitment-test-mysql.caqylurhpyhw.eu-west-1.rds.amazonaws.com'),
+            'database' => env('DB_DATABASE', 'star-wars'),
             'username' => env('DB_USERNAME', 'candidate'),
             'password' => env('DB_PASSWORD', 'PrototypeRocks123654'),
             'unix_socket' => env('DB_SOCKET', ''),
