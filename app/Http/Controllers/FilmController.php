@@ -77,16 +77,23 @@ class FilmController extends Controller
 
     public function largestNoOfVehicle()
     {
-        $planets = Planet::query()
-            ->with("films")
-            ->select(["planets.id", "planets.name", DB::raw("COUNT(vehicles_pilots.people_id) AS no_of_vehicles")])
-            ->join("films_planets", "planets.id", "=", "films_planets.planet_id")
-            ->join("films", "films_planets.film_id", "=", "films.id")
-            ->join("films_characters", "films.id", "=", "films_characters.film_id")
-            ->join("vehicles_pilots", "films_characters.people_id", "=", "vehicles_pilots.people_id")
-            ->groupBy("planets.id")
-            ->orderByDesc("no_of_vehicles")
-            ->first();
+        $planets = DB::select('SELECT 
+pl.name AS planet, 
+count(fc.people_id) AS no_of_pilots,
+GROUP_CONCAT(p.name,"-",s.name) AS name
+
+FROM planets pl
+
+JOIN films_planets fp ON pl.id = fp.planet_id
+JOIN films_characters fc ON fp.film_id = fc.film_id
+JOIN people p ON fc.people_id = p.id
+JOIN vehicles_pilots vp ON p.id = vp.people_id
+JOIN species_people sp ON p.id = sp.people_id
+JOIN species s ON sp.species_id = s.id
+
+GROUP BY pl.id, fc.film_id
+ORDER BY no_of_pilots DESC 
+LIMIT 1');
 
 
         return response()->json($planets);
